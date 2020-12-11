@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\nihao\\test"
+		},
+		{
+			"path": "..\\..\\..\\..\\nihao\\react-demos"
+		},
+		{
+			"path": "..\\..\\..\\..\\umitest"
+		},
+		{
+			"path": "..\\..\\.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "react-demos"
+	}
+}
