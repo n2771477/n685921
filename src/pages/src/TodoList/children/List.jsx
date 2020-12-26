@@ -1,18 +1,19 @@
 import React from 'react';
+import { Checkbox, Button } from 'antd';
+import { MinusCircleOutlined } from '@ant-design/icons';
 
-import '../css/list.css';
-export default function List(props) {
+export const List = function List(props) {
   console.log(props);
-  const { list, listClassIndex, displayListValue } = props;
-  console.log(list, listClassIndex);
+  const { list, display, name, onDelTask, onCompleteTask } = props;
+  console.log(list, display, name);
   return (
     <ul
       className="todolist"
-      style={{ display: displayListValue === 0 ? 'none' : 'block' }}
+      style={{ display: display === 0 ? 'none' : 'block' }}
     >
-      {list.map((value, listValueClass) => {
-        console.log(value, listValueClass);
+      {list.map(value => {
         // 解构数据
+
         const { status, id, taskname } = value;
         console.log(status, id, taskname);
         return (
@@ -20,20 +21,14 @@ export default function List(props) {
             <div className="list1">
               {/* 状态显示 */}
               <div className="radioBox">
-                <input
+                <Checkbox
                   type="checkbox"
                   checked={status === 1}
                   onChange={() => {
-                    props.oncompleteTask(
-                      listClassIndex,
-                      listValueClass,
-                      status,
-                    );
+                    onCompleteTask(name, id);
                   }}
-                  id="radio_yes"
                 />
               </div>
-
               {/* 任务内容，以及状态style */}
               <div className="content">
                 <div
@@ -52,14 +47,14 @@ export default function List(props) {
                 </div>
               </div>
               {/* 清楚按钮 */}
-              <button
+              <Button
                 onClick={() => {
-                  props.onDeletetask(listClassIndex, id, listValueClass);
+                  onDelTask(name, id);
                 }}
-                className="listButton"
+                // className="listButton"
               >
-                一
-              </button>
+                删除
+              </Button>
             </div>
             <div className="line"></div>
           </li>
@@ -67,4 +62,4 @@ export default function List(props) {
       })}
     </ul>
   );
-}
+};

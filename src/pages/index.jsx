@@ -1,10 +1,7 @@
 import React from 'react';
-import styles from './index.less';
-import ReactDOM from 'react-dom';
-import './src/TodoList/tool';
-import App from './src/TodoList/Todolist.jsx';
+
+import { TodoList } from './src/TodoList/TodoList';
 
 export default () => {
-  console.log('全局变量', global.list);
-  return <App />;
+  return <TodoList />;
 };
