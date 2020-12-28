@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import '../css/list.css';
+import { Table } from 'antd';
 import { Form } from './test/Form';
 import { List } from './children/List';
 import { Tag } from './children/Tag';
@@ -10,6 +11,16 @@ function TodoList() {
   return (
     <Fragment>
       <Form></Form>
+      <Table
+        columns={columns}
+        expandable={{
+          expandedRowRender: record => (
+            <p style={{ margin: 0 }}>{record.description}</p>
+          ),
+          rowExpandable: record => record.name !== 'Not Expandable',
+        }}
+        dataSource={data}
+      />
       {list
         ? list.map(listdata => {
             const { name, value, display } = listdata;
